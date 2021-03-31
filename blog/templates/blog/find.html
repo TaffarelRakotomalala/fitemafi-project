@@ -1,0 +1,36 @@
+{% extends "blog/main.html" %}
+{% load static %}
+
+{% block "titre" %} Recherche {% endblock %}
+
+{% block "icon" %}
+    <link type="images/png" rel="shortcut icon" href="{% static 'images/classic-blue.png' %}">
+{% endblock %}
+{% block "table" %}
+    <tr style="display: flex;">
+        <th style="text-align: left; margin-left: 12%">ID_Nom_Prénoms</th>
+        <th style="text-align: left;margin-left: 7%;">Droit d'adhension</th>
+        <th style="text-align: left;margin-left: 4%;">Droit annuel</th>
+        <th style="text-align: left;margin-left: 4%;">Droit de Réception</th>
+    </tr>
+    {% for res in T %}
+    <tr style="display: block; float: left; margin-left: 12%;">
+        {% for k in res %}
+            <td style="text-align: left; display: block; ">{{k}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+{% endblock %}
+
+
+{% block "nom" %} Rechercher un membres {% endblock %}
+
+{% block "formulaire" %} 
+    <form method="POST">
+        {% csrf_token %}
+        <p><label>Rechercher : <input type="text" name="rchrch" placeholder="Taper le prénom"></label></p>
+        <input type="submit" value="Valider" class="submit">
+    </form>
+{% endblock %}
+
+{% block "information" %}--> Résultats : {{b}} membres{% endblock %}

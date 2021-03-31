@@ -1,0 +1,38 @@
+{% extends "blog/main.html" %}
+{% load static %}
+
+{% block "titre" %} Modifier {% endblock %}
+
+{% block "icon" %}
+    <link type="images/png" rel="shortcut icon" href="{% static 'images/edit.png' %}">
+{% endblock %}
+
+{% block "nom" %} Modifier une information d'un membres {% endblock %}
+
+{% block "formulaire" %}
+    <form method="POST">
+        {% csrf_token %}
+        <p><label>ID : </label><input type="number" name="id_mbr"></p>
+        <p><label>Nom : </label><input type="text" name="nom_mbr"></p>
+        <p><label>Prénoms : </label><input type="text" name="prenom_mbr"></p>
+        <p><label>Adresse : </label>
+            <select name="adresse_mbr">
+                <option value="Interne">Interne</option>
+                <option value="Externe">Externe</option>
+            </select>
+        </p>
+        <p><label>Droit d'adhension : </label>
+            <input type="radio" name="da_mbr" id="true" value="True"><label for="true">Payé?</label>
+            <input type="radio" name="da_mbr" id="false" value="False"><label for="false">Non Payé?</label>
+        </p>
+        <p><label>Droit annuel : </label>
+            <input type="radio" name="dan_mbr" id="true" value="True"><label for="true">Payé?</label>
+            <input type="radio" name="dan_mbr" id="false" value="False"><label for="false">Non Payé?</label>
+        </p>
+        <p><label>Droit de réception : </label>
+            <input type="radio" name="dr_mbr" id="true" value="True"><label for="true">Payé?</label>
+            <input type="radio" name="dr_mbr" id="false" value="False"><label for="false">Non Payé?</label>
+        </p>
+        <input type="submit" value="Modifier" class="submit">
+    </form>
+{% endblock %}

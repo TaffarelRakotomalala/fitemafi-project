@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block "head" %}
+        <title>{%block "titre" %} Enregistrement {% endblock %}</title>
+        <meta charset="utf-8" name="viewport">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
+        {% block "icon" %}
+            <link type="images/png" rel="shortcut icon" href="{% static 'images/save(1).png' %}">
+        {% endblock %}
+        <script src = "{% static 'javascript/main.js' %}"></script>
+        {% endblock %}
+    </head>
+    <body onload="ttdateheure()">
+        <div class="en_tete">
+            <img class="img_uf" src="{% static 'images/UF.PNG' %}">
+            <h1 class="titre">Fikambanan'ny terak'i Manandriana Fihasinana (FI.TE.MA.FI) <br><br> Université de Fianarantsoa</h1>
+            <img class="img_fac" src="{% static 'images/FAC.PNG' %}">
+        </div>
+        <cite style="font-size: 22px;">"Rano andriagna tsa mba lomorina."</cite>
+        <div class="corps">
+            <div class="corps_droit">
+                <div class="filtre">
+                    {% block 'filtre' %}
+                    {% endblock %}
+                </div>
+                
+                <table>
+                    {% block "table" %}
+                    <tr style="color:black; background-color: rgb(138, 144, 155);">
+                        <th>ID</th>
+                        <th style="text-align: left;">Nom</th>
+                        <th style="text-align: left;">Prénoms</th>
+                        <th>Adresse</th>
+                    </tr>
+                    </div>
+                    {% for res in resultat1 %}
+                    <tr>
+                        <td>{{res.id}}</td>
+                        <td style="text-align: left;">{{res.nom}}</td>
+                        <td style="text-align: left;">{{res.prenoms}}</td>
+                        <td>{{res.adresse}}</td>
+                    </tr>
+                    {% endfor %}
+                    {% endblock %}
+                </table>
+            </div>
+            <div class="corps_gauche">
+                <img src="{{request.user.utilisateur.avatar.url}}" class="img_user"><a href="../config_user"><img src = "{% static 'images/process.png' %}" class="img_conf"></a>
+                <p style="color:white; text-align: center;">{{user.first_name}} {{user.last_name}}</p>
+                <div id = "heure_date" class="dateheure">
+                </div>
+                <h4 style="color: white; text-align: center; text-decoration: underline">{% block "nom" %}Enregistrer un membre {% endblock %}</h4>
+                <p style="text-align: center;">
+                    {% for message in messages %}
+                        <img src="{% static 'images/accept.png' %}" class="img-message">{{message}}
+                    {% endfor %}
+                </p>
+                {% block "formulaire" %}
+                <form method="POST" class="form">
+                    {% csrf_token %}
+                    {{form1.as_p}}
+                    <input type="submit" value="V a l i d e r" class="submit">
+                </form>
+                {% endblock %}
+                <p>{% if envoi == True %} Membre enregistré {% endif %} </p>
+                <h2 style="color:white; text-align:center; text-decoration: underline;">ACTIONS</h2>
+                {% block "button" %}
+                <button><a href="../accueil">Accueil</a></button>
+                <button><a href="../enreg">Enregistrer Droit</a></button>
+                <button><a href="../recherche">Rechercher</a></button>
+                <button><a href="../modifier">Modifier</a></button>
+                <button><a href="../supprimer">Supprimer</a></button>
+                <button><a href="../histogramme">Histogramme</a></button>
+                <button>Imprimer</button>
+                <button><a href="../logout_user">Déconnecter</a> </button>
+                {% endblock %}
+                <h2 style="color:white; text-align:center; text-decoration: underline">INFORMATIONS</h2>
+                <p>{% block "information" %} --> Effectif de membres : {{a}} {% endblock %}</p>
+                <p> --> Droit d'adhension : 4.000 Ar</p>
+                <p> --> Droit annuel : 3.000 Ar</p>
+                <p> --> Droit de réception : 5.000 Ar</p>
+                {% block "test1" %}
+                    <p> ---> Membres qui ont payé droit d'adhension : {{isa1}} </p>
+                    <p> ---> Membres qui ont payé droit annuel : {{isa2}} </p>
+                    <p> ---> Membres qui ont payé droit de réception : {{isa3}} </p>
+                {% endblock %}
+                <p>{% block "test" %}--> Somme des Droits : {{somme}} Ar{% endblock %}</p>
+            </div>
+        </div> 
+    </body>
+</html>

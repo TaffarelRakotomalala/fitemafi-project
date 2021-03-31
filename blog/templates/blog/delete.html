@@ -1,0 +1,38 @@
+{% extends "blog/main.html" %}
+{% load static %}
+
+{% block "titre" %} Supprimer {% endblock %}
+
+{% block "icon" %}
+    <link type="images/png" rel="shortcut icon" href="{% static 'images/trash.png' %}">  
+{% endblock %}
+
+{% block "table" %}
+<tr>
+    <th style="text-align: left;">ID_Nom_Prénoms</th>
+    <th>Droit d'adhension</th>
+    <th >Droit annuel</th>
+    <th>Droit de Réception</th>
+    <th>Total Droits</th>
+</tr>
+{% for res in resultat2 %}
+<tr>
+    <td style="text-align: left;">{{res.id_membres}}</td>
+    <td>{{res.droit_adhension}}</td>
+    <td>{{res.droit_annuel}}</td>
+    <td>{{res.droit_reception}}</td>
+</tr>
+{% endfor %}
+{% endblock %}
+
+{% block "nom" %} Supprimer un membres {% endblock %}
+
+{% block "formulaire" %}
+    <form method="POST">
+        {% csrf_token %}
+        <p><label>Supprimer :</label><input type="number" name="suppr" placeholder="Entrer l'ID"></p>
+        <input type="submit" value="Supprimer" class="submit">
+    </form>
+{% endblock %}
+
+{% block "information" %} --> Effectif de membres : {{b}} {% endblock %}

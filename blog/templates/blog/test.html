@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> test html</title>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+        <img src="{{request.proprietaire.Utilisateur.avatar.url}}" width="5%" height="5%" class="#">
+        <div class="corps">
+        <div class="corps_droit">
+        <p>Hello World</p>
+        <table>
+                <tr>
+                    <th>ID, Nom et Prénoms</th>
+                    <th>Droit Adhesions</th>
+                    <th>Droit Annuel</th>
+                    <th>Droit Réception</th>
+                </tr>
+                {% for res in resultat2 %}
+                <tr>
+                    <td style="text-align:left;">{{res.id_membres}}</td>
+                    <td>{{res.droit_adhension}}</td>
+                    <td>{{res.droit_annuel}}</td>
+                    <td>{{res.droit_reception}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="corps_gauche">
+            <form method="POST">
+                {% csrf_token %}
+                {{a.as_p}}
+                <input type="submit" value="Valider" name="OK">
+            </form>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE hmtl>
+<html>
+    <head>
+        <title>Configuration</title>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/config.css' %}">
+        <link type="images/png" rel="shortcut icon" href="{% static 'images/process.png' %}">
+    </head>
+    <body>
+        <div class="parametre">
+            <img src="{{request.user.utilisateur.avatar.url}}" class="img-user">
+            <p style="text-align:center; color:white;">{{user.last_name}} {{user.first_name}}</p>
+            <h4>Changer votre photo :</h4>
+            <form method="POST"  enctype="multipart/form-data" class="form-config">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Changer">
+            </form>
+            <h4 style="color:white"><a href="../password_reset">Changer Mot de Passe?</a></h4><br><br>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+

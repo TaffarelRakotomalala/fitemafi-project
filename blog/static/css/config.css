@@ -1,0 +1,46 @@
+body{
+    background-image: url('../images/fond10.jpg');
+}
+
+.parametre{
+    background: rgba(98, 159, 209, 0.3);
+    width: 50%;
+    margin: 10%;
+    margin-left: 25%;
+    border-radius: 10px;
+    display: absolute;
+}
+
+.img-user{
+    width: 10%;
+    height: 10%;
+    border-radius: 10px;
+    display: absolute;
+    margin-top: -5%;
+    text-align: center;
+    margin-left: 45%;
+}
+
+.form-config{
+    color: white;
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+.form-config [type = submit]{
+    margin-left: 22%;
+    background: transparent;
+    border-radius: 5px;
+    border-color: white;
+    color:white;
+}
+
+h4{
+    color:rgba(235, 236, 243, 0.4);
+    margin: 5%;
+    text-transform: uppercase;
+}
+
+a{
+    text-decoration: none;
+    color:rgba(235, 236, 243, 0.4);
+}

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> {% block 'title' %} Se connecter {% endblock %} </title>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/user.css' %}">
+        <link type="images/png" rel="shortcut icon" href="{% static 'images/profil.png' %}">
+    </head>
+    <body>
+        <div class="login">
+            <img src="{% static 'images/profil.png' %}" class="photo1">
+            <h2> {% block 'titre' %}Se connecter {% endblock %}</h2>
+            {% block 'form_user' %}
+            <form method="POST" class="form">
+                {% csrf_token %}
+                <p class="para">
+                    <label>Nom d'utilisateur : </label>
+                    <input type="text" name="username" placeholder="Entrer votre nom d'utilisateur">
+                </p>
+                <p class="para"><label>Mot de Passe : </label><input type="password" name="password" placeholder="Entrer votre mot de passe"></p>
+                <input type="submit" value="V a l i d e r">
+            </form>
+            {% endblock %}
+            {% block 'info' %} <p style="text-align: center;"> {{a}} </p> {% endblock %}
+            <p> {% block 'lien' %} <a href="../register_user">Créer un compte.</a> {% endblock %} </p>
+            <p><a href="../password_reset">Mot de Passe oublier?</a></p>
+        </div>
+    </body>
+</html>

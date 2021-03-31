@@ -1,0 +1,181 @@
+body{
+    background-image: url('../images/fond10.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.en_tete{
+    background: rgba(0, 0, 0, 0.5);
+    width: 90%;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 0%;
+    border-radius: 37px;
+}
+.titre {
+    text-align: center;
+    color: white;
+    text-shadow: 1% 2% 1% black;
+    text-transform: uppercase;
+    font-size:95%;
+    margin-left: 27%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+img{
+    border-radius: 30px;
+    border-color: chocolate;
+    align-items: center;
+    width: 80px;
+    height: 90px;
+}
+
+.img_fac{
+    margin-left: 30%;
+}
+.img_uf{
+    margin-left: 0%;
+}
+
+table{
+    color : white;
+    border-collapse: collapse;
+    width: 100%;
+}
+td{
+    text-align: left;
+    padding: 11px;
+    text-align: center;
+
+}
+th{
+    padding: 8px;
+    text-align: center;
+}
+
+tr:nth-child(even) {background-color: rgba(12, 12, 12, 0.7);}
+
+.corps{
+    width: 99%;
+    margin: 0%;
+    padding: 0%;
+    background: transparent;
+    display: flex;
+    position: fixed;
+}
+
+cite{
+    animation-name: animate;
+    animation-duration: 25s;
+    animation-iteration-count: infinite;
+}
+@keyframes animate{
+    0%   {color:white; margin-left:0%;}
+    15%  {color:red; margin-left:25%;}
+    30%  {color:yellow; margin-left:50%}
+    45%  {color: darkred; margin-left:75%;}
+    60%  {color:yellow; margin-left:50%;}
+    75%  {color:red; margin-left:25%;}
+    100% {color:white; margin-left:0%;}
+}
+
+.corps_droit{
+    padding: 5px;
+    margin-top: 10px;
+    background: transparent;
+    width: 80%;
+    height: 530px;
+    overflow: auto;
+    border: 1px solid white;
+}
+.corps_gauche{
+    background: transparent;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 30%;
+    height: 540px;
+    overflow: auto;
+    border: 1px solid white;
+}
+.corps label, p{
+    color: white;
+    margin-left: 2%;
+}
+.form input[type = "text"]{
+    display: flex;
+    margin-left: 10%;
+    margin-top: 2%;
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    background: transparent;
+    color: white;
+    font-size: 15px;
+}
+.form input[type = 'submit']{
+    margin-bottom: 5%;
+}
+input[type = "submit"]:hover, button:hover{
+    color: gray;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.submit{
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin-left: 30%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dateheure{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-align: center;
+    margin-top: 5%;
+    text-shadow: 1px 2px 3px black;
+    font-size: 20px;
+}
+
+button{
+    font-family: Lucida sans;
+    background-color:black;
+    color: white;
+    border-radius: 5px;
+    margin: 5%;
+    font-size: 100%;
+    display: block;
+    cursor: pointer;
+    margin-left: 10%;
+    border-color: darkslategrey;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.img_user{
+    text-align: center;
+    border-radius: 10px;
+    width: 70px;
+    height: 60px;
+    margin: 3%;
+    margin-left: 40%;
+}
+
+.img-message{
+    width:20px;
+    height: 20px;
+}
+
+.img_conf{
+    width:30px;
+    height: 30px;
+}
+
+.filtre input{
+    color: black;
+}
